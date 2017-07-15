@@ -4,6 +4,63 @@
 
 `state` 可根据用户与应用网站的交互来改变，当用户与应用网站交互时会有不同的state，不同的state会触发更新用户界面和数据,对于需要更改的数据，我们需要使用state。一般来说，需要在constructor中初始化state,然后在需要修改时调用setState方法。然而 ` props` 是组件的属性，是不可更改的，只可读，用于传递数据。      
 
+### props
+
+`...this.props`和`...other`    
+
+`...other`：
+
+```
+var {a,b,c,d,e,f}<==>var {a,...other}
+此时的...other中保存的是除了a以外的所有属性（变量）。
+```
+
+
+`...this.props`和`...other`功能差不多。但是，其不同的地方就是，`...this.props`包含了所有的属性，不论你是否明确使用。但是，`...other`方式包含的是除了明确使用的属性以外剩下的那些属性(例如：`...other`是除`a`以外的剩余`b,c,d,e,f`)    
+
+### this.props.children
+
+`this.props`对象的属性与`组件的属性一一对应`，但是有一个例外，就是`this.props.children`属性。他表示组件的所有子节点。   
+
+```
+var NotesList = React.createClass({
+  render:function(){
+    return (
+      <ol>
+        {
+          React.children.map(this.props.children,function(child){
+            return <li>{child}</li>
+          })
+        }
+      </ol>
+    );
+  }
+});
+
+ReactDOM.render(
+  <NotesList>
+    <span>hello</span>
+    <span>world</span>
+  </NotesList>,
+  document.body
+);
+
+```
+
+上面代码的`NoteList`组件有两个`span`子节点，它们都可以通过`this.props.children`读取，运行结果如下。   
+
+```
+1.hello
+2.world
+
+```
+
+这里需要注意，`this.props.children`的值有三种可能：如果当前组件没有子节点，它就是`undefined`;如果有一个子节点，数据类型是`object`；如果有多个子节点，数据类型就是`array`。所以，处理`this.props.children`的时候要小心。       
+
+React 提供一个工具方法`React.Children`来处理`this.props.children`。我们可以用`react.Children.map`来遍历子节点，而不用担心`this.props.children`的数据类型是`undefined`还是`object`。更多的`React.Children`的方法，请参考官方文档。      
+
+
+
 ## render 方法
 
 render 方法是组件唯一一个必须的方法，它会创建一个虚拟DOM，用来表示组件的输出。`注意：`
