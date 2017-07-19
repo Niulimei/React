@@ -1106,3 +1106,16 @@ const Root = ({ store }) =>(
 );
 
 ```
+
+
+# Redux API之 bindActionCreators
+
+## bindActionCreators(actionCreators,dispatch)
+
+一般情况下你可以直接在Store实例上调用 dispatch。如果你在React中中用Redux,React-Redux 会提供 dispatch。    
+唯一使用bindActionCreators的场景是当你需要把 actionCreators往下传到一个组件上，却不想让这个组件察觉到Redux的存在，而且不希望把Redux store 或 dispatch传给它。为方便起见，你可以传入一个函数作为第一个参数，它会返回一个函数。   
+
+```
+function map
+
+```
