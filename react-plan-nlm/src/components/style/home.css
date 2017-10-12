@@ -1,0 +1,15 @@
+/* .App{
+    
+} */
+.App-header{
+    
+}
+
+.nav li{
+    display: inline;
+    list-style: none;
+    /* float: left; */
+    /* white-space: nowrap; */
+    padding: 25px;
+   
+}
