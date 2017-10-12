@@ -1,0 +1,27 @@
+.TopMenu {
+    text-align: left;
+    /* margin-top: -10px; */
+  }
+  
+  
+  .TopMenu-logo {
+    /* animation: App-logo-spin infinite 20s linear; */
+    height: 80px;
+    margin-top: -65px;
+  }
+  
+  .TopMenu-header {
+    background-color: #5952F1;
+    height: 30px;
+    padding: 20px;
+    color: white;
+  }
+  .TopMenu-header h1{
+    text-align: center;
+    margin-top: -6px;
+   }
+  
+  .TopMenu-intro {
+    font-size: large;
+  }
+  
